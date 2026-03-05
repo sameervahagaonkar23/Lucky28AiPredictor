@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lucky28-prediction
+    env: python
+    plan: free
+    branch: main
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port \$PORT --server.address 0.0.0.0
+    runtime: python-3.10.12
